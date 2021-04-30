@@ -24,7 +24,7 @@ const privateKey2 = process.env.ZKSYNC_DEV2_PRIVATE_KEY;
   const ethWallet2 = new ethers.Wallet(privateKey2, ethersProvider);
   const syncWallet2 = await zksync.Wallet.fromEthSigner(
     ethWallet2,
-    syncProvide
+    syncProvider
   );
 
   const tx = await syncWallet.signSyncTransfer({
