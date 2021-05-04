@@ -23,7 +23,9 @@ async function setupWallet() {
 
 (async () => {
   const interval = setInterval(async () => {
-    const res = await axios.get("http://localhost:3000/order/42");
+    const res = await axios.get(
+      "http://localhost:4000/order/0x3F89E8aA95076CCAb17D4BBEc4c604D93973f285"
+    );
     if (res.data) {
       console.log(res.data);
       const order = res.data;
@@ -42,12 +44,12 @@ const orderFound = async tx => {
   await batchTxs[1].awaitReceipt();
 
   console.log("submitted success");
-  await settle(42);
+  await settle("0x3F89E8aA95076CCAb17D4BBEc4c604D93973f285");
 };
 
 async function settle(id) {
   try {
-    await axios.post("http://localhost:3000/settle", {
+    await axios.post("http://localhost:4000/settle", {
       id: id,
     });
   } catch (e) {

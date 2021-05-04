@@ -15,8 +15,8 @@ const walletAddress = "0x9e8f8C3Ad87dBE7ACFFC5f5800e7433c8dF409F2";
   const tx = await signTransaction(wallet2);
 
   try {
-    await axios.post("http://localhost:3000/order", {
-      id: 42,
+    await axios.post("http://localhost:4000/order", {
+      id: wallet2.address(),
       transaction: tx,
     });
   } catch (e) {

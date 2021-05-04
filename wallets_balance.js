@@ -20,6 +20,9 @@ const main = async () => {
     syncProvider
   );
 
+  console.log("wallet address: ", syncWallet.address());
+  console.log("wallet2 address: ", syncWallet2.address());
+
   // wallet
   const committedETHBalance = await syncWallet.getBalance("ETH");
   console.log(
